@@ -12,11 +12,9 @@ namespace MehProjektTest.Models
 
     public class MehKiralyno : Meh
     {
-        
-        
-        
-        List<Meh> mehs = new List<Meh>();
 
+
+        #region BasicPros
         //basic tulajdonságok
         public double Termekenyseg { get; set; }
         public int MaxSpawnCap { get; private set; }
@@ -28,26 +26,63 @@ namespace MehProjektTest.Models
         //public double Kapacitas { get; set; }
         //public double Hatekonysag { get; set; }
         //public double Eszleles { get; set; }
-        public MehKiralyno(MehKiralyno mehKiralyno) :base(mehKiralyno)
+        #endregion
+
+        #region HelperProps
+        public bool IsSpawnPauesed=false;
+        public int cdtimer = 0;
+        #endregion
+
+
+        public MehKiralyno(MehKiralyno mehKiralyno) : base(mehKiralyno)
         {
-            if (mehKiralyno!=null)
+            if (mehKiralyno != null)
             {
                 Termekenyseg = mehKiralyno.Termekenyseg * (_minevo + Utility.rnd.NextDouble() / _modifier);
                 MaxSpawnCap = Convert.ToInt32(mehKiralyno.MaxSpawnCap * (_minevo + Utility.rnd.NextDouble() / _modifier));
-                MaxSpawnTilRe = 0;
+                MaxSpawnTilRe = 100;
             }
             else
             {
-                Termekenyseg = 1;
-                MaxSpawnTilRe = 0;
+                Termekenyseg = 10;
+                MaxSpawnTilRe = 100;
                 MaxSpawnCap = 1000;
-            }
+            }            
 
         }
 
-        public void Spawning()
+
+        public void Spawning(Kaptar myKaptar)
         {
-            
+            if (IsSpawnPauesed)
+            {
+                cdtimer--;
+                if (cdtimer == 0)
+                {
+                    IsSpawnPauesed = false;
+                    MaxSpawnTilRe = MaxSpawnCap;
+                }
+                
+            }
+            else
+            {
+                for (int i = 0; i < Termekenyseg; i++)
+                {
+                    myKaptar.Mehek.Add(new Meh(this));
+                    MaxSpawnTilRe--;
+                    if (MaxSpawnTilRe==0)
+                    {
+                        SpawnRefresh();
+                        return;
+                    }
+                }
+            }
+        }
+        public void SpawnRefresh()
+        {
+            IsSpawnPauesed = true;
+            cdtimer = 2;
+
         }
 
     }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Utility.cs" />
+    <Compile Include="Logic\TurnLogics.cs" />
     <Compile Include="Models\IMeh.cs" />
     <Compile Include="Models\Kaptar.cs" />
     <Compile Include="Models\Meh.cs" />
@@ -54,8 +55,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

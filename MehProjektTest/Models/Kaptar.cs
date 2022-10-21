@@ -10,7 +10,7 @@ namespace MehProjektTest.Models
     {
         
         public MehKiralyno Kiralyno;
-        List<Meh> Mehek = new List<Meh>();
+        public List<Meh> Mehek = new List<Meh>();
 
         public int kaptarId;
         public int elelem;
@@ -19,14 +19,6 @@ namespace MehProjektTest.Models
             Kiralyno = newQ;
             kaptarId = newQ.Id;
             elelem = 100;
-        }
-
-        public void DivideCheck()
-        {
-            if (Mehek.Count>500)
-            {
-
-            }
         }
 
     }
