@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\AgingCalculator.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Logic\TurnLogics.cs" />
     <Compile Include="Models\IMeh.cs" />

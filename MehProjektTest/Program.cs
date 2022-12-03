@@ -1,15 +1,13 @@
 ﻿using MehProjektTest.Logic;
 using MehProjektTest.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MehProjektTest
 {
-    
+
     class Program
     {
 
@@ -26,9 +24,10 @@ namespace MehProjektTest
             {
                 while (true)
                 {
+                    Console.WriteLine("Actual round: " + tl.roundCl);
                     foreach (var item in TurnLogics.OsszesKaptar.ToList())
                     {
-                        Console.WriteLine("Kaptár ID: "+ item.kaptarId+" | Összes méh a kaptárban: "+item.Mehek.Count);
+                        Console.WriteLine("Kaptár ID: " + item.kaptarId + " | Összes méh a kaptárban: " + item.Mehek.Count + " | Élelem: "+item.elelem);
 
                     }
                     Thread.Sleep(300);
@@ -44,6 +43,6 @@ namespace MehProjektTest
 
             ;
         }
-        
+
     }
 }
