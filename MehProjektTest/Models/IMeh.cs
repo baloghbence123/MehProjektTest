@@ -12,5 +12,8 @@
         double Kapacitas { get; set; }
         double Sebesseg { get; set; }
         double Tomeg { get; set; }
+
+        Meh DeepCopy();
+        void Divide();
     }
 }

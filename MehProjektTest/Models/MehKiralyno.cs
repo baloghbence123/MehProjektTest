@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using System.CodeDom;
-using MehProjektTest.Helpers;
+﻿using MehProjektTest.Helpers;
+using System;
 
 namespace MehProjektTest.Models
 {
@@ -29,7 +23,7 @@ namespace MehProjektTest.Models
         #endregion
 
         #region HelperProps
-        public bool IsSpawnPauesed=false;
+        public bool IsSpawnPauesed = false;
         public int cdtimer = 0;
         #endregion
 
@@ -44,10 +38,11 @@ namespace MehProjektTest.Models
             }
             else
             {
-                Termekenyseg = 10;
-                MaxSpawnTilRe = 100;
+                Termekenyseg = 50;
+                MaxSpawnTilRe = 200;
                 MaxSpawnCap = 1000;
-            }            
+            }
+            
 
         }
 
@@ -62,7 +57,7 @@ namespace MehProjektTest.Models
                     IsSpawnPauesed = false;
                     MaxSpawnTilRe = MaxSpawnCap;
                 }
-                
+
             }
             else
             {
@@ -70,7 +65,7 @@ namespace MehProjektTest.Models
                 {
                     myKaptar.Mehek.Add(new Meh(this));
                     MaxSpawnTilRe--;
-                    if (MaxSpawnTilRe==0)
+                    if (MaxSpawnTilRe == 0)
                     {
                         SpawnRefresh();
                         return;

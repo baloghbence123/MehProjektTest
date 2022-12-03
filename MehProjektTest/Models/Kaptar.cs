@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MehProjektTest.Models
 {
     public class Kaptar
     {
-        
+
         public MehKiralyno Kiralyno;
         public List<Meh> Mehek = new List<Meh>();
 
         public int kaptarId;
-        public int elelem;
+
+        public double Allapot { get; set; } //max 100 lehet a kaptár állapota
+
+        public double MaxElelem { get => Allapot * 100; }
+        public double elelem { get; set; } //a jelenlegi élelelm
+
+
+
         public Kaptar(MehKiralyno newQ)
         {
             Kiralyno = newQ;
             kaptarId = newQ.Id;
-            elelem = 100;
+            elelem = 600;
+            Allapot = 50;
+
         }
 
     }
