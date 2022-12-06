@@ -21,7 +21,7 @@ namespace MehProjektTest.Models
         {
             Kiralyno = newQ;
             kaptarId = newQ.Id;
-            elelem = 600;
+            elelem = 565;
             Allapot = 50;
 
         }
